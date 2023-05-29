@@ -1,14 +1,13 @@
+import React from 'react';
 import {
   Image,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
-import React from 'react';
-import {categories} from '../data';
-import {themeColors} from '../theme';
+import { categories } from '../../data';
+import TextSmaller from '../text/TextSmaller';
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = React.useState(null);
@@ -38,13 +37,11 @@ const Categories = () => {
                   source={category.image}
                 />
               </TouchableOpacity>
-              <Text
-                style={[
-                  styles.categoryText,
-                  {fontWeight: isActive ? 700 : 500},
-                ]}>
-                {category.name}
-              </Text>
+
+              <TextSmaller
+                text={category.name}
+                style={{fontWeight: isActive ? 700 : 500,color:'#333'}}
+              />
             </View>
           );
         })}

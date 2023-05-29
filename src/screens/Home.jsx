@@ -1,9 +1,9 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import Body from '../components/Body';
-import Categories from '../components/Categories';
-import Features from '../components/Features';
-import SearchBar from '../components/SearchBar';
+import Categories from '../components/home/Categories';
+import Features from '../components/home/Features';
+import SearchBar from '../components/home/SearchBar';
 import {featured} from '../data';
 
 const HomeScreen = () => {

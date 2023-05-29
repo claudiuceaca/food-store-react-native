@@ -3,9 +3,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Body = ({children}) => {
   return (
-    <SafeAreaView style={{backgroundColor:'white'}}>
+    <SafeAreaView style={{backgroundColor: 'white'}}>
       <StatusBar
-        backgroundColor="transparent"
+        backgroundColor="white"
         barStyle="dark-content"
         hidden={false}
         translucent={true}

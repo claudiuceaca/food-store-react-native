@@ -7,24 +7,21 @@ import {
   View,
 } from 'react-native';
 import RestaurantCard from './RestaurantCard';
-import {themeColors} from '../theme';
+import {themeColors} from '../../theme';
+import TextBigger from '../text/TextBigger';
+import TextSmall from '../text/TextSmall';
+import TextSmaller from '../text/TextSmaller';
 
 const Features = ({title, description, restaurants}) => {
   return (
     <View>
       <View style={styles.featureContainer}>
         <View>
-          <Text style={styles.featureTitle}>{title}</Text>
-          <Text style={styles.featureDescription}>{description}</Text>
+          <TextBigger text={title} />
+          <TextSmaller text={description} />
         </View>
         <TouchableOpacity>
-          <Text
-            style={[
-              styles.featureButtonText,
-              {color: themeColors.bgColor(1)},
-            ]}>
-            See All
-          </Text>
+          <TextSmall text="See All" style={{color: themeColors.bgColor(1)}} />
         </TouchableOpacity>
       </View>
       <ScrollView
@@ -50,16 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
-  },
-  featureTitle: {
-    fontWeight: 700,
-    fontSize: 22,
-    color: 'black',
-  },
-  featureDescription: {},
-  featureButtonText: {
-    fontWeight: 500,
-    fontSize:15
   },
   featureScrollView: {
     overflow: 'visible',

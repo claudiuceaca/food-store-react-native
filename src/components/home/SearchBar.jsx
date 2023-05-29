@@ -1,8 +1,10 @@
 import React from 'react';
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import * as Icon from 'react-native-feather';
-import {stylesSearchbar} from '../css/home';
-import {themeColors} from '../theme';
+import {stylesSearchbar} from '../../css/home';
+import {themeColors} from '../../theme';
+import TextSmall from '../text/TextSmall';
+import TextSmaller from '../text/TextSmaller';
 
 const SearchBar = () => {
   return (
@@ -13,9 +15,11 @@ const SearchBar = () => {
           style={stylesSearchbar.searchBarInput}
           placeholder="Restaurants"
         />
-        <TouchableOpacity style={stylesSearchbar.searchBarPin} activeOpacity={0.6}>
+        <TouchableOpacity
+          style={stylesSearchbar.searchBarPin}
+          activeOpacity={0.6}>
           <Icon.MapPin height={20} width={20} stroke="gray" />
-          <Text>New York, NYC</Text>
+          <TextSmaller text="New York, NYC" />
         </TouchableOpacity>
       </View>
       <TouchableOpacity
