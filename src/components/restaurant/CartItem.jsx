@@ -1,11 +1,14 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {themeColors} from '../../theme';
+import { useNavigation } from '@react-navigation/native';
 
 const CartItem = () => {
+  const nav = useNavigation();
   return (
     <View style={styles.cartItemContainer}>
       <TouchableOpacity
+        onPress={()=>nav.navigate('Cart')}
         style={styles.cartItemButton}
         activeOpacity={0.7}>
         <View style={styles.cartItemCountContainer}>
