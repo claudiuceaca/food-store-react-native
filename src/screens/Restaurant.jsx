@@ -1,11 +1,6 @@
-import { useRoute } from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import React from 'react';
-import {
-  Image,
-  ScrollView,
-  StatusBar,
-  View
-} from 'react-native';
+import {Image, ScrollView, StatusBar, View} from 'react-native';
 import ButtonBack from '../components/ButtonBack';
 import ReviewLocation from '../components/ReviewLocation';
 import CartItem from '../components/restaurant/CartItem';
@@ -17,7 +12,6 @@ import TextSmaller from '../components/text/TextSmaller';
 const RestaurantScreen = () => {
   const {params} = useRoute();
 
-  console.log(params);
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <StatusBar
@@ -38,7 +32,7 @@ const RestaurantScreen = () => {
             backgroundColor: 'white',
             top: -33,
             minHeight: 30,
-            marginBottom: 60,
+            marginBottom:60
           }}>
           <View style={{padding: 20}}>
             <TextBigger text={params.name} />
@@ -58,7 +52,6 @@ const RestaurantScreen = () => {
 
             <TextSmaller text={params.description} />
           </View>
-
           <TextBig
             text="Menu"
             style={{
@@ -71,6 +64,7 @@ const RestaurantScreen = () => {
             <Dishes key={index} dish={{...dish}} />
           ))}
         </View>
+
       </ScrollView>
     </View>
   );

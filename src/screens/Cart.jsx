@@ -19,6 +19,8 @@ import * as Icon from 'react-native-feather';
 import TitlePrice from '../components/cart/TitlePrice';
 import TextBig from '../components/text/TextBig';
 import {useNavigation} from '@react-navigation/native';
+import ContainerTopRadius from '../components/ContainerTopRadius';
+import Button from '../components/Button';
 
 const CartScreen = () => {
   const restaurant = featured.restaurants[0];
@@ -65,11 +67,9 @@ const CartScreen = () => {
         })}
       </ScrollView>
 
-      <View
+      <ContainerTopRadius
         style={{
           backgroundColor: themeColors.bgColor(0.2),
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 20,
           padding: 20,
           gap: 10,
         }}>
@@ -80,19 +80,14 @@ const CartScreen = () => {
           price="$22"
           style={{fontWeight: 800, color: 'black'}}
         />
-        <TouchableOpacity
+        <Button
           onPress={() => nav.navigate('OrderPreparing')}
-          activeOpacity={0.6}
           style={{
-            backgroundColor: themeColors.bgColor(1),
-            borderRadius: 30,
-            padding: 10,
             justifyContent: 'center',
-            alignItems: 'center',
           }}>
           <TextBig text="Place Order" style={{color: 'white'}} />
-        </TouchableOpacity>
-      </View>
+        </Button>
+      </ContainerTopRadius>
     </Body>
   );
 };
