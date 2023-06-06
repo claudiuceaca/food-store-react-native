@@ -1,9 +1,8 @@
 import React from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {TextInput, TouchableOpacity, View} from 'react-native';
 import * as Icon from 'react-native-feather';
 import {stylesSearchbar} from '../../css/home';
 import {themeColors} from '../../theme';
-import TextSmall from '../text/TextSmall';
 import TextSmaller from '../text/TextSmaller';
 
 const SearchBar = () => {

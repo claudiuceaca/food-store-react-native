@@ -4,13 +4,16 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
-import { categories } from '../../data';
+import {useDispatch} from 'react-redux';
+import {categories} from '../../data';
+import {setSelectedCategory} from '../../slices/restaurantSlice';
 import TextSmaller from '../text/TextSmaller';
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = React.useState(null);
+  const dispatch = useDispatch();
 
   return (
     <View style={{marginTop: 16, marginBottom: 20}}>
@@ -27,20 +30,28 @@ const Categories = () => {
           return (
             <View key={index} style={styles.categoryContainer}>
               <TouchableOpacity
-                onPress={() => setActiveCategory(category.id)}
+                onPress={() => {
+                  dispatch(setSelectedCategory(category.category));
+                  setActiveCategory(category.id);
+                }}
                 style={[
                   styles.categoryItem,
-                  {backgroundColor: isActive ? '#718096' : '#edf2f7'},
+                  {
+                    borderColor: isActive ? '#bfbfbf' : '#f2f2f2',
+                  },
                 ]}>
                 <Image
-                  style={{width: 45, height: 45}}
+                  style={{
+                    width: 45,
+                    height: 45,
+                  }}
                   source={category.image}
                 />
               </TouchableOpacity>
 
               <TextSmaller
                 text={category.name}
-                style={{fontWeight: isActive ? 700 : 500,color:'#333'}}
+                style={{fontWeight: isActive ? 700 : 500, color: '#333'}}
               />
             </View>
           );
@@ -65,6 +76,7 @@ const styles = (props = StyleSheet.create({
     borderRadius: 50,
     width: 64,
     height: 64,
+    borderWidth: 2,
   },
   categoryText: {
     color: 'black',

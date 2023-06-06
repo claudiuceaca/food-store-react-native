@@ -1,6 +1,7 @@
-import {useRoute} from '@react-navigation/native';
-import React from 'react';
-import {Image, ScrollView, StatusBar, View} from 'react-native';
+import { useRoute } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { Image, ScrollView, StatusBar, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import ButtonBack from '../components/ButtonBack';
 import ReviewLocation from '../components/ReviewLocation';
 import CartItem from '../components/restaurant/CartItem';
@@ -8,9 +9,18 @@ import Dishes from '../components/restaurant/Dishes';
 import TextBig from '../components/text/TextBig';
 import TextBigger from '../components/text/TextBigger';
 import TextSmaller from '../components/text/TextSmaller';
+import { setRestaurant } from '../slices/restaurantSlice';
 
 const RestaurantScreen = () => {
   const {params} = useRoute();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (params) {
+      dispatch(setRestaurant({...params}));
+    }
+  }, []);
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -32,7 +42,7 @@ const RestaurantScreen = () => {
             backgroundColor: 'white',
             top: -33,
             minHeight: 30,
-            marginBottom:60
+            marginBottom: 60,
           }}>
           <View style={{padding: 20}}>
             <TextBigger text={params.name} />
@@ -64,7 +74,6 @@ const RestaurantScreen = () => {
             <Dishes key={index} dish={{...dish}} />
           ))}
         </View>
-
       </ScrollView>
     </View>
   );

@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import {
   Image,
@@ -7,27 +7,22 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import * as Icon from 'react-native-feather';
+import Button from '../components/Button';
+import ContainerTopRadius from '../components/ContainerTopRadius';
+import Map from '../components/delivery/Map';
 import TextBigger from '../components/text/TextBigger';
 import TextMedium from '../components/text/TextMedium';
 import TextSmall from '../components/text/TextSmall';
 import TextSmaller from '../components/text/TextSmaller';
-import {featured} from '../data';
-import {themeColors} from '../theme';
-import * as Icon from 'react-native-feather';
-import Map from '../components/delivery/Map';
-import ContainerTopRadius from '../components/ContainerTopRadius';
-import Button from '../components/Button';
-import ButtonBack from '../components/ButtonBack';
+import { themeColors } from '../theme';
 
 const DeliveryScreen = () => {
-  const restaurant = featured.restaurants[0];
   const nav = useNavigation();
 
   return (
     <View style={{flex: 1}}>
       <StatusBar backgroundColor="transparent" barStyle="light-content" />
-      <ButtonBack />
-
       <Map />
 
       <ContainerTopRadius>
@@ -70,6 +65,7 @@ const DeliveryScreen = () => {
               />
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={()=>nav.navigate('Home')}
               style={{backgroundColor: 'white', padding: 6, borderRadius: 50}}>
               <Icon.X stroke={'red'} strokeWidth={4} />
             </TouchableOpacity>

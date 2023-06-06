@@ -5,8 +5,16 @@ import Categories from '../components/home/Categories';
 import Features from '../components/home/Features';
 import SearchBar from '../components/home/SearchBar';
 import {featured} from '../data';
+import {selectSelectedCategory} from '../slices/restaurantSlice';
+import {useSelector} from 'react-redux';
 
 const HomeScreen = () => {
+  const selectedCategory = useSelector(selectSelectedCategory);
+
+  const filteredFeatured = selectedCategory
+    ? featured.filter(item => item.category === selectedCategory)
+    : featured;
+
   return (
     <Body>
       <View>
@@ -17,7 +25,7 @@ const HomeScreen = () => {
             paddingBottom: 120,
           }}>
           <Categories />
-          {[featured, featured, featured].map((feature, index) => {
+          {filteredFeatured.map((feature, index) => {
             return (
               <Features
                 key={index}
