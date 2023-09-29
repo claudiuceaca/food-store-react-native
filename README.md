@@ -11,11 +11,27 @@ A React Native application that allows users to explore restaurants, add items t
     cd restaurant-app
     npm install
  
-2. Start the development server:
-    ```bash
-     npm start
+3. Install Android Studio and Dependencies:
+ To set up the Android development environment, follow these steps:
+
+    * Install Android Studio on your computer. During installation, ensure that you select the following components:
+      - Android SDK
+      - Android SDK Platform
+      - Android Virtual Device
+      - If not using Hyper-V: Performance (Intel ® HAXM) (For AMD or Hyper-V, refer to these instructions).
+
+    * Open Android Studio, click on `"More Actions,"` and select `"SDK Manager."` Within the `"SDK Platforms"` tab, ensure that `"Android SDK Platform 33"` is checked.
+
+    * In the `"SDK Tools"` tab, ensure that `"Android SDK Build-Tools 33.0.0"` is selected.
+
+    * Configure the `ANDROID_HOME` environment variable to point to your Android SDK location `(usually %LOCALAPPDATA%\Android\Sdk)`.
+
+    * Add the platform-tools directory `(usually %LOCALAPPDATA%\Android\Sdk\platform-tools)` to your system's PATH environment variable.
+
+     Alternatively, you can follow the [React Native Android setup guide](https://reactnative.dev/docs/environment-setup?guide=native) for detailed instructions.
+
   
-3. Run the app on iOS or Android:
+4. Run the app on iOS or Android:
      ```bash
      npm run ios
      npm run android
