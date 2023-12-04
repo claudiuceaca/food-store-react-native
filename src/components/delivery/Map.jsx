@@ -1,5 +1,4 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {themeColors} from '../../theme';
 
@@ -30,5 +29,3 @@ const Map = () => {
 };
 
 export default Map;
-
-const styles = StyleSheet.create({});

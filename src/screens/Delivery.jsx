@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {
   Image,
@@ -15,7 +15,7 @@ import TextBigger from '../components/text/TextBigger';
 import TextMedium from '../components/text/TextMedium';
 import TextSmall from '../components/text/TextSmall';
 import TextSmaller from '../components/text/TextSmaller';
-import { themeColors } from '../theme';
+import {themeColors} from '../theme';
 
 const DeliveryScreen = () => {
   const nav = useNavigation();
@@ -26,18 +26,13 @@ const DeliveryScreen = () => {
       <Map />
 
       <ContainerTopRadius>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
+        <View style={styles.containerDelivery}>
           <View>
             <TextSmall text="Estimated Arrival" style={{fontWeight: 600}} />
             <TextBigger text="20-30 Minutes" style={{fontWeight: 900}} />
             <TextSmaller
               text="Your order is own its way!"
-              style={{fontWeight: 500, color: 'black'}}
+              style={styles.textSmaller}
             />
           </View>
           <Image
@@ -49,15 +44,14 @@ const DeliveryScreen = () => {
         <Button>
           <Image
             source={require('../assets/images/deliveryGirl.webp')}
-            style={{width: 70, height: 70, borderRadius: 50}}
+            style={styles.deliveryPerson}
           />
-          <View style={{flex: 1, marginLeft: 15}}>
+          <View style={styles.deliveryPersonDetails}>
             <TextMedium text="Alina Maria" style={{color: 'white'}} />
             <TextSmaller text="Your Rider" style={{color: 'white'}} />
           </View>
-          <View style={{flexDirection: 'row', gap: 10, marginRight: 5}}>
-            <TouchableOpacity
-              style={{backgroundColor: 'white', padding: 6, borderRadius: 50}}>
+          <View style={styles.iconsContainer}>
+            <TouchableOpacity style={styles.iconPhone}>
               <Icon.Phone
                 fill={themeColors.bgColor(1)}
                 stroke={themeColors.bgColor(1)}
@@ -65,8 +59,8 @@ const DeliveryScreen = () => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={()=>nav.navigate('Home')}
-              style={{backgroundColor: 'white', padding: 6, borderRadius: 50}}>
+              onPress={() => nav.navigate('Home')}
+              style={styles.iconCancel}>
               <Icon.X stroke={'red'} strokeWidth={4} />
             </TouchableOpacity>
           </View>
@@ -78,4 +72,38 @@ const DeliveryScreen = () => {
 
 export default DeliveryScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  containerDelivery: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  textSmaller: {
+    fontWeight: 500,
+    color: 'black',
+  },
+  deliveryPerson: {
+    width: 70,
+    height: 70,
+    borderRadius: 50,
+  },
+  deliveryPersonDetails: {
+    flex: 1,
+    marginLeft: 15,
+  },
+  iconsContainer: {
+    flexDirection: 'row',
+    gap: 10,
+    marginRight: 5,
+  },
+  iconPhone: {
+    backgroundColor: 'white',
+    padding: 6,
+    borderRadius: 50,
+  },
+  iconCancel: {
+    backgroundColor: 'white',
+    padding: 6,
+    borderRadius: 50,
+  },
+});
