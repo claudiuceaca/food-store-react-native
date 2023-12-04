@@ -1,12 +1,12 @@
 import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
+import {useSelector} from 'react-redux';
 import Body from '../components/Body';
 import Categories from '../components/home/Categories';
 import Features from '../components/home/Features';
 import SearchBar from '../components/home/SearchBar';
 import {featured} from '../data';
 import {selectSelectedCategory} from '../slices/restaurantSlice';
-import {useSelector} from 'react-redux';
 
 const HomeScreen = () => {
   const selectedCategory = useSelector(selectSelectedCategory);
@@ -42,5 +42,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});

@@ -1,7 +1,6 @@
-import { useRoute } from '@react-navigation/native';
-import React, { useEffect } from 'react';
-import { Image, ScrollView, StatusBar, View } from 'react-native';
-import { useDispatch } from 'react-redux';
+import {useRoute} from '@react-navigation/native';
+import React from 'react';
+import {Image, ScrollView, StatusBar, View} from 'react-native';
 import ButtonBack from '../components/ButtonBack';
 import ReviewLocation from '../components/ReviewLocation';
 import CartItem from '../components/restaurant/CartItem';
@@ -9,18 +8,11 @@ import Dishes from '../components/restaurant/Dishes';
 import TextBig from '../components/text/TextBig';
 import TextBigger from '../components/text/TextBigger';
 import TextSmaller from '../components/text/TextSmaller';
-import { setRestaurant } from '../slices/restaurantSlice';
+import useRestaurant from '../hooks/restaurantHook';
 
 const RestaurantScreen = () => {
   const {params} = useRoute();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (params) {
-      dispatch(setRestaurant({...params}));
-    }
-  }, []);
+  const {restaurantData} = useRestaurant(params);
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -32,7 +24,10 @@ const RestaurantScreen = () => {
       <CartItem />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{position: 'relative'}}>
-          <Image source={params.image} style={{width: '100%', height: 250}} />
+          <Image
+            source={restaurantData.image}
+            style={{width: '100%', height: 250}}
+          />
           <ButtonBack />
         </View>
         <View
@@ -45,7 +40,7 @@ const RestaurantScreen = () => {
             marginBottom: 60,
           }}>
           <View style={{padding: 20}}>
-            <TextBigger text={params.name} />
+            <TextBigger text={restaurantData.name} />
 
             <ReviewLocation
               style={{
@@ -54,13 +49,13 @@ const RestaurantScreen = () => {
                 gap: 10,
                 alignItems: 'center',
               }}
-              stars={params.stars}
-              reviews={params.reviews}
-              address={params.address}
-              category={params.category}
+              stars={restaurantData.stars}
+              reviews={restaurantData.reviews}
+              address={restaurantData.address}
+              category={restaurantData.category}
             />
 
-            <TextSmaller text={params.description} />
+            <TextSmaller text={restaurantData.description} />
           </View>
           <TextBig
             text="Menu"
@@ -70,7 +65,7 @@ const RestaurantScreen = () => {
             }}
           />
 
-          {params.dishes.map((dish, index) => (
+          {restaurantData.dishes.map((dish, index) => (
             <Dishes key={index} dish={{...dish}} />
           ))}
         </View>

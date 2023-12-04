@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import RestaurantCard from './RestaurantCard';
 import {themeColors} from '../../theme';
 import TextBigger from '../text/TextBigger';

@@ -8,7 +8,7 @@ const OrderPreparing = () => {
   React.useEffect(() => {
     setTimeout(() => {
       nav.navigate('Delivery');
-    }, 2000);
+    }, 1500);
   }, []);
 
   return (
