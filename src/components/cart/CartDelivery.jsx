@@ -1,5 +1,6 @@
 import React from 'react';
-import {Image, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {themeColors} from '../../theme';
 import TextSmall from '../text/TextSmall';
 
 const CartDelivery = () => {
@@ -10,7 +11,7 @@ const CartDelivery = () => {
   return (
     <View style={styles.cartDelivery}>
       <Image
-        source={require('../assets/images/bikeGuy.png')}
+        source={require('../../assets/images/bikeGuy.png')}
         style={{width: 100, height: 100}}
       />
       <TextSmall text="Deliver in 20-30 minutes" />
